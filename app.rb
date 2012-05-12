@@ -34,6 +34,8 @@ __END__
   </head>
   <body>
     <%= yield %>
+  <br>
+  <a href="https://github.com/nemilya/ruby-game-life">github</a>
   </body>
 </html>
 

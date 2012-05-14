@@ -17,15 +17,13 @@ INIT_GENERATION = \
 "                              \n"
 
 get '/' do
-  game = GameLife.new :empty_cell=>' ', :life_cell=>'*'
-  game.first_generation = INIT_GENERATION
+  game = GameLife.new :empty_cell=>' ', :life_cell=>'*', :map=>INIT_GENERATION
   @screen = game.screen
   erb :index
 end
 
 post '/' do
-  game = GameLife.new :empty_cell=>' ', :life_cell=>'*'
-  game.first_generation = params[:g]
+  game = GameLife.new :empty_cell=>' ', :life_cell=>'*', :map=>params[:g]
   game.do_step
   @screen = game.screen
   erb :index

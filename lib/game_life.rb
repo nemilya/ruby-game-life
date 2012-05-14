@@ -7,14 +7,22 @@ class GameLife
 
   EMPTY_CELL = '.'
   LIVE_CELL = '*'
+
+  def cells
+    @cells
+  end
   
   def initialize(options={})
-    @rows = options[:rows] || ROWS
-    @cols = options[:cols] || COLS
-    @empty_cell = options[:empty_cell] || EMPTY_CELL
-    @life_cell = options[:life_cell] || LIVE_CELL
     @cells = []
-    init_cells
+    @empty_cell = options[:empty_cell] || EMPTY_CELL
+    @live_cell = options[:live_cell] || LIVE_CELL
+    if options[:map]
+      set_generation(options[:map])
+    else
+      @cols = options[:cols] || COLS
+      @rows = options[:rows] || ROWS
+      init_cells
+    end
   end
 
   def max_rows
@@ -40,7 +48,7 @@ class GameLife
     ret = ''
     @cells.each do |row|
       row.each do |cell|
-        ret << (cell == LIVE_CELL ? @life_cell : @empty_cell)
+        ret << (cell == LIVE_CELL ? @live_cell : @empty_cell)
       end
       ret << "\n"
     end
@@ -59,7 +67,7 @@ class GameLife
     return @cells[location[:row]][location[:col]] == LIVE_CELL rescue false
   end
 
-  def first_generation=(map)
+  def set_generation(map)
     rows = map.split(NL)
     @rows = rows.size
     @cols = rows[0].chomp.chars.to_a.size
@@ -69,7 +77,7 @@ class GameLife
     rows.each do |row|
       cur_col = 0
       row.chars.each do |cell|
-        if cell == @life_cell
+        if cell == @live_cell
           set_life_at :row=>cur_row, :col=>cur_col
         end
         cur_col += 1

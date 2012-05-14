@@ -13,8 +13,8 @@ INIT_GENERATION = \
 "    *  *  *  *  *  *  *  *    \n" +
 "    *  *   **   ***    ***    \n" +
 "                         *    \n" +
-"                      ***     \n"
-"                              \n" +
+"                      ***     \n" +
+"                              \n"
 
 get '/' do
   game = GameLife.new :empty_cell=>' ', :life_cell=>'*'

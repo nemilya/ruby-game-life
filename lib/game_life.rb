@@ -8,10 +8,6 @@ class GameLife
   EMPTY_CELL = '.'
   LIVE_CELL = '*'
 
-  def cells
-    @cells
-  end
-  
   def initialize(options={})
     @cells = []
     @empty_cell = options[:empty_cell] || EMPTY_CELL

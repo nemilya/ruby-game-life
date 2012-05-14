@@ -39,6 +39,7 @@ __END__
   <body>
     <%= yield %>
   <br>
+  <a href="http://ruby-game-life.cloudfoundry.com">index</a> |
   <a href="https://github.com/nemilya/ruby-game-life">github</a> |
   <a href="http://en.wikipedia.org/wiki/Conway's_Game_of_Life">wikipedia</a>
   

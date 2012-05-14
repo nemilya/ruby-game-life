@@ -36,12 +36,14 @@ __END__
 @@ layout
 <html>
   <head>
-  <title>Life</title>
+  <title>John Horton Conway - Game of Life</title>
   </head>
   <body>
     <%= yield %>
   <br>
-  <a href="https://github.com/nemilya/ruby-game-life">github</a>
+  <a href="https://github.com/nemilya/ruby-game-life">github</a> |
+  <a href="http://en.wikipedia.org/wiki/Conway's_Game_of_Life">wikipedia</a>
+  
   </body>
 </html>
 
